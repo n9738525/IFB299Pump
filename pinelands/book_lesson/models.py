@@ -10,6 +10,14 @@ Gender_Options = (
 	('OTHER', 'Other'),
 )
 
+Conditions = (
+	('New', 'New'),
+	('Excellent', 'Excellent'),
+	('Good', 'Good'),
+	('Repair', 'Repair'),
+	('Discard', 'Discard'),
+	)
+
 
 class Student(models.Model):
 	username = models.OneToOneField(User)
@@ -34,7 +42,7 @@ class Parent(models.Model):
 	DOB = models.DateField()
 	Gender = models.CharField(max_length=128, choices = Gender_Options)
 	phonenumber = models.CharField(max_length=128)
-	parentof = models.CharField(max_length=128)
+	parentof = models.CharField(max_length=128, null=True)
 	
 	def __str__(self):
 		return self.email
@@ -61,5 +69,11 @@ class Lesson(models.Model):
 	Language = models.CharField(max_length=128)
 	def __str__(self):
 		return self.email
+		
+class Instruments(models.Model):
+	instrument_type = models.CharField(max_length=128)
+	instrument_name = models.CharField(max_length=128)
+	hire_cost_weekly = models.CharField(max_length=128)
+	condition = models.CharField(max_length=128, choices = Conditions)
 		
 		

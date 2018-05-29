@@ -3,6 +3,10 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from book_lesson.forms import LessonForm, UserForm, StudentProfileForm
 from django.template import loader
+from book_lesson.models import Instruments
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
+
 
 from django.http import HttpResponse
 def index(request):
@@ -14,17 +18,14 @@ def add_lesson(request):
 		form = LessonForm(request.POST)
 		
 		if form.is_valid():
-            # Save the new category to the database.
 			form.save(commit=True)
 			
 			return index(request)
 			
 		else:
-            # The supplied form contained errors - just print them to the terminal.
 			print(form.errors)
 			
 	else:
-        # If the request was not a POST, display the form to enter details.
 		form = LessonForm()
 	
 	template = loader.get_template('book_lesson/add_lesson.html')	
@@ -118,4 +119,19 @@ def user_login(request):
 		return render(request, 'book_lesson/login.html', {})
 
 			
+
+def instrument_hire(request):
+	instrument_list = Instruments.objects.order_by('condition')
+	context_dict = {'Instruments': instrument_list}
+	
+	return render(request, 'book_lesson/instrument_hire.html', context_dict)
+			
+			
+
+@login_required
+def user_logout(request):
+    
+    logout(request)
+
+    return HttpResponseRedirect('/book_lesson/')
 			

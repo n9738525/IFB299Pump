@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pinelands</title>
+    </head>
+
+    <body>
+        <h1>Avaliable Instruments</h1>
+
+        {% if Instruments %}
+            <ul>
+                {% for instrument in Instruments %}
+                <li>{{ instrument.instrument_name}} - {{ instrument.instrument_type}} - {{ instrument.hire_cost_weekly}} - {{ instrument.condition}}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong>There are no instruments currently for hire.</strong>
+        {% endif %}
+    </body>
+</html>
