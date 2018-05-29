@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from book_lesson.models import Lesson, Student, Teacher
+from book_lesson.models import Lesson, Student, Parent, Teacher
 
 class LessonForm(forms.ModelForm):
 	Teacher = forms.ModelChoiceField(queryset=Teacher.objects.all())
@@ -28,3 +28,8 @@ class StudentProfileForm(forms.ModelForm):
     class Meta:
         model = Student
         fields = ('email', 'FirstName', 'LastName', 'DOB', 'Gender', 'phonenumber', 'facebookID')
+		
+class ParentProfileForm(forms.ModelForm):
+    class Meta:
+        model = Parent
+        fields = ('email', 'FirstName', 'LastName', 'DOB', 'Gender', 'phonenumber', 'parentof')

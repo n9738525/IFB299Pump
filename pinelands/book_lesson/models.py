@@ -34,7 +34,7 @@ class Parent(models.Model):
 	DOB = models.DateField()
 	Gender = models.CharField(max_length=128, choices = Gender_Options)
 	phonenumber = models.CharField(max_length=128)
-	facebookID = models.URLField()
+	parentof = models.CharField(max_length=128)
 	
 	def __str__(self):
 		return self.email
