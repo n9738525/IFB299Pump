@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from book_lesson.models import Lesson, Student, Parent, Teacher
+from book_lesson.models import Lesson, Student, Parent, Teacher, Feedback
 
 class LessonForm(forms.ModelForm):
 	Teacher = forms.ModelChoiceField(queryset=Teacher.objects.all())
@@ -33,3 +33,9 @@ class ParentProfileForm(forms.ModelForm):
     class Meta:
         model = Parent
         fields = ('email', 'FirstName', 'LastName', 'DOB', 'Gender', 'phonenumber', 'parentof')
+		
+# class FeedbackForm(forms.ModelForm):
+	# feedback_content = forms.TextField()
+	# class Meta:
+		# model = Feedback
+		# fields = ('feedback_content')

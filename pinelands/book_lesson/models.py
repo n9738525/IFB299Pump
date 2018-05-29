@@ -75,5 +75,9 @@ class Instruments(models.Model):
 	instrument_name = models.CharField(max_length=128)
 	hire_cost_weekly = models.CharField(max_length=128)
 	condition = models.CharField(max_length=128, choices = Conditions)
+	
+class Feedback(models.Model):
+	id = models.AutoField(primary_key=True)
+	feedback_content = models.TextField()
 		
 		
