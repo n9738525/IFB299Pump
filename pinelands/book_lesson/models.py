@@ -78,6 +78,6 @@ class Instruments(models.Model):
 	
 class Feedback(models.Model):
 	id = models.AutoField(primary_key=True)
-	feedback_content = models.TextField()
+	feedback_content = models.CharField(max_length=128)
 		
 		

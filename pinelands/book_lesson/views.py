@@ -1,7 +1,7 @@
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
-from book_lesson.forms import LessonForm, UserForm, StudentProfileForm
+from book_lesson.forms import LessonForm, UserForm, StudentProfileForm, FeedbackForm, ParentProfileForm
 from django.template import loader
 from book_lesson.models import Instruments
 from django.contrib.auth.decorators import login_required
@@ -63,7 +63,28 @@ def register(request):
 			
 	template = loader.get_template('book_lesson/register.html')
 	
-	return HttpResponse(template.render({'user_form': user_form, 'student_profile_form': student_profile_form, 'registered': registered}, request))		
+	return HttpResponse(template.render({'user_form': user_form, 'student_profile_form': student_profile_form, 'registered': registered}, request))
+	
+def feedback_form(request):
+	registered = False
+	if request.method == 'POST':
+		form = FeedbackForm(data=request.POST)
+		
+		if form.is_valid():
+			content = form.save(commit=False)
+			content.save()
+			
+			registered = True
+			
+		else:
+			print(form.errors)
+			
+	else:
+		form = FeedbackForm()
+	
+	template = loader.get_template('book_lesson/feedback.html')	
+	return HttpResponse(template.render({'form': form, 'registered': registered}, request))
+			
 			
 def parent_register(request):
 	registered = False

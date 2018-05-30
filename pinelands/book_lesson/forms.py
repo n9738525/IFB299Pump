@@ -34,8 +34,8 @@ class ParentProfileForm(forms.ModelForm):
         model = Parent
         fields = ('email', 'FirstName', 'LastName', 'DOB', 'Gender', 'phonenumber', 'parentof')
 		
-# class FeedbackForm(forms.ModelForm):
-	# feedback_content = forms.TextField()
-	# class Meta:
-		# model = Feedback
-		# fields = ('feedback_content')
+class FeedbackForm(forms.ModelForm):
+	feedback_content = forms.CharField(widget=forms.Textarea)
+	class Meta:
+		model = Feedback
+		fields = ('feedback_content',)
