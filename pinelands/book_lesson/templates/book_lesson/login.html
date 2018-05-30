@@ -3,7 +3,146 @@
     <head>
         <title>Pinelands</title>
     </head>
+ <style>
+    body{
+    margin: 0;
+    padding: 0;
+    background: url(music.jpg);
+    background-size: cover;
+    background-position: center;
+    font-family: sans-serif;
+}
 
+.loginbox{
+    width: 320px;
+    height: 420px;
+    background: #000;
+    color: #fff;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+
+.avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.loginbox p{
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+.loginbox input{
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.loginbox input[type="text"], input[type="password"]
+{
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #fff;
+    font-size: 16px;
+}
+.loginbox input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #fb2525;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 20px;
+}
+.loginbox input[type="submit"]:hover
+{
+    cursor: pointer;
+    background: #ffc107;
+    color: #000;
+}
+.loginbox a{
+    text-decoration: none;
+    font-size: 12px;
+    line-height: 20px;
+    color: darkgrey;
+}
+
+.loginbox a:hover
+{
+    color: #ffc107;
+}
+        .form button{
+            font-family: "Robto",sans-serif;
+            text-transform: uppercase;
+            outline: 0;
+            background: #fb2525;
+            width:100%;
+            border: 0;
+            padding: 15px;
+            color: #FFFFFF;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    
+        ////////      
+        nav{
+         width:100%;
+            background: #FFFFFF;
+            height: 80px;
+            margin-top: 0px;
+            
+        }
+        
+        ul{
+            list-style:none;
+            padding: 0;
+            margin: 0 0 0 475px;
+        }
+        li{
+            float: left;
+    
+        }
+        
+       nav a{
+            display: block;
+            text-decoration: none;
+            font-size: 20px;
+            text-align: center;
+            padding:  15px 15px;
+            font-family: Arial;
+            font-weight:bold; 
+        }
+        a:hover{
+           
+            transition: 0.6s;
+            opacity: 0.5;
+        }
+        .logo img{
+            position: absolute;
+            margin-top: 10px;
+            margin-left: 10px;
+        }
+        
+    </style>
     <body>
         <h1>Login to Pinelands</h1>
 
